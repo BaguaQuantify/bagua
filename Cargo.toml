@@ -1,0 +1,24 @@
+[workspace]
+members = ["bagua-engine", "bagua-types"]
+resolver = "2"
+
+[workspace.package]
+version = "1.0.0"
+authors = ["<husky-wealths> <husky@wealths.app"]
+description = "八卦量化库"
+edition = "2021"
+license-file = "LICENSE"
+repository = "https://github.com/BaguaQuantify/bagua"
+
+[profile.release]
+codegen-units = 1
+debug = false
+lto = true
+strip = true
+opt-level = "z"
+panic = 'abort'
+overflow-checks = false
+debug-assertions = false
+incremental = false
+
+[workspace.dependencies]
