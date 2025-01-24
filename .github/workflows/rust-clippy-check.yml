@@ -2,7 +2,8 @@ name: rust-clippy-check
 
 on:
   pull_request:
-    - main
+    branches:
+      - main
 
 env:
   RUSTFLAGS: "-Dwarnings"
