@@ -1,5 +1,5 @@
 [workspace]
-members = ["bagua-engine", "bagua-types"]
+members = ["bagua-engine", "bagua-helpers", "bagua-types"]
 resolver = "2"
 
 [workspace.package]
@@ -23,4 +23,19 @@ incremental = false
 
 [workspace.dependencies]
 bagua-types = { path = "./bagua-types" }
+bagua-helpers = { path = "./bagua-helpers" }
 bagua-engine = { path = "./bagua-engine" }
+tokio = { version = "1", features = ["full"] }
+anyhow = { version = "1" }
+tracing = { version = "0" }
+tracing-subscriber = { version = "0", features = ["local-time", "json"] }
+chrono = { version = "0" }
+time = { version = "0", features = ["macros", "formatting"] }
+once_cell = { version = "1" }
+rayon = { version = "1" }
+futures = { version = "0" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
+snowflaked = { version = "1", features = ["sync"] }
+async-trait = { version = "0" }
+parking_lot = { version = "0" }

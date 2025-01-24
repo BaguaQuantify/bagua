@@ -7,5 +7,9 @@ name = "bagua-engine"
 version = "1.0.0"
 
 [[package]]
+name = "bagua-helpers"
+version = "1.0.0"
+
+[[package]]
 name = "bagua-types"
 version = "1.0.0"
