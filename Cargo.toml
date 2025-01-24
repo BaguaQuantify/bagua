@@ -1,5 +1,11 @@
 [workspace]
-members = ["bagua-engine", "bagua-exchange", "bagua-helpers", "bagua-types"]
+members = [
+    "bagua-engine",
+    "bagua-exchange",
+    "bagua-helpers",
+    "bagua-types",
+    "bagua-python-sdk",
+]
 resolver = "2"
 
 [workspace.package]
@@ -41,3 +47,4 @@ snowflaked = { version = "1", features = ["sync"] }
 async-trait = { version = "0" }
 parking_lot = { version = "0" }
 ringbuffer = { version = "0" }
+pyo3 = { version = "0.23", features = ["full"] }
