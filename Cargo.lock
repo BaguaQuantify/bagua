@@ -28,6 +28,14 @@ name = "bagua-engine"
 version = "1.0.0"
 
 [[package]]
+name = "bagua-exchange"
+version = "1.0.0"
+dependencies = [
+ "bagua-helpers",
+ "bagua-types",
+]
+
+[[package]]
 name = "bagua-helpers"
 version = "1.0.0"
 

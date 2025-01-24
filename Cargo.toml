@@ -1,5 +1,5 @@
 [workspace]
-members = ["bagua-engine", "bagua-helpers", "bagua-types"]
+members = ["bagua-engine", "bagua-exchange", "bagua-helpers", "bagua-types"]
 resolver = "2"
 
 [workspace.package]
@@ -25,6 +25,7 @@ incremental = false
 bagua-types = { path = "./bagua-types" }
 bagua-helpers = { path = "./bagua-helpers" }
 bagua-engine = { path = "./bagua-engine" }
+bagua-exchange = { path = "./bagua-exchange" }
 tokio = { version = "1", features = ["full"] }
 anyhow = { version = "1" }
 tracing = { version = "0" }
