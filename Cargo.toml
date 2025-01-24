@@ -39,3 +39,4 @@ serde_json = { version = "1" }
 snowflaked = { version = "1", features = ["sync"] }
 async-trait = { version = "0" }
 parking_lot = { version = "0" }
+ringbuffer = { version = "0" }
