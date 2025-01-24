@@ -22,3 +22,5 @@ debug-assertions = false
 incremental = false
 
 [workspace.dependencies]
+bagua-types = { path = "./bagua-types" }
+bagua-engine = { path = "./bagua-engine" }
