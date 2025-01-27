@@ -94,6 +94,15 @@ dependencies = [
 [[package]]
 name = "bagua-engine"
 version = "1.0.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "bagua-exchange",
+ "bagua-helpers",
+ "bagua-types",
+ "chrono",
+ "tokio",
+]
 
 [[package]]
 name = "bagua-exchange"
