@@ -15,6 +15,8 @@ class HistoryData:
         bucket = "hyperliquid-archive"
         prefix = "market_data/202307"
 
+        is_finish = False
+
         while True:
             if req_token is None:
                 response = self.client.list_objects_v2(Bucket=bucket, Prefix=prefix)
@@ -24,8 +26,11 @@ class HistoryData:
             for obj in response.get("Contents", []):
                 key: str = obj["Key"]
                 if key.endswith("BTC.lz4"):
-                    print(key)
-
+                    is_finish = True
+                    self.client.download_file(bucket, key, obj["ETag"] + ".lz4")
+                    break
+            if is_finish:
+                break
             if response["IsTruncated"]:
                 req_token = response["NextContinuationToken"]
             else:
