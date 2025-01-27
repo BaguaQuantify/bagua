@@ -28,10 +28,11 @@ debug-assertions = false
 incremental = false
 
 [workspace.dependencies]
-bagua-types = { path = "./bagua-types" }
-bagua-helpers = { path = "./bagua-helpers" }
 bagua-engine = { path = "./bagua-engine" }
 bagua-exchange = { path = "./bagua-exchange" }
+bagua-helpers = { path = "./bagua-helpers" }
+bagua-types = { path = "./bagua-types" }
+bagua-python-sdk = { path = "./bagua-python-sdk" }
 tokio = { version = "1", features = ["full"] }
 anyhow = { version = "1" }
 tracing = { version = "0" }
