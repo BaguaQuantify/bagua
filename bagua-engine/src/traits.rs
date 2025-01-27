@@ -1,6 +1,7 @@
 use anyhow::Result;
 use async_trait::async_trait;
 use bagua_exchange::prelude::*;
+use bagua_helpers::prelude::*;
 use bagua_types::prelude::*;
 use chrono::{DateTime, Utc};
 
@@ -75,13 +76,30 @@ pub trait Strategy: Clone + Send + Sync {
 
 #[async_trait]
 pub trait Engine: Clone + Send + Sync {
-    fn logo(&self) -> &str;
+    fn logo(&self) -> &str {
+        LOGO
+    }
+
     fn now(&self) -> DateTime<Utc>;
+
     fn now_ms(&self) -> i64;
-    fn ms_to_date(ms: i64) -> Result<DateTime<Utc>>;
-    fn gen_id(&self) -> String;
-    fn truncate_float(&self, val: f64, decimals: u32, round_up: bool) -> f64;
-    fn is_zero(&self, val: f64) -> bool;
+
+    fn ms_to_date(ms: i64) -> Result<DateTime<Utc>> {
+        ms_to_date(ms)
+    }
+
+    fn gen_id(&self) -> String {
+        gen_id()
+    }
+
+    fn truncate_float(&self, val: f64, decimals: u32, round_up: bool) -> f64 {
+        truncate_float(val, decimals, round_up)
+    }
+
+    fn is_zero(&self, val: f64) -> bool {
+        is_zero(val)
+    }
+
     async fn get_candles(
         &self,
         product: ProductType,
@@ -91,16 +109,23 @@ pub trait Engine: Clone + Send + Sync {
         end_time: Option<DateTime<Utc>>,
         limit: Option<i64>,
     ) -> Result<Vec<Candle>>;
+
     async fn get_positions(&self) -> Result<Vec<Position>>;
+
     async fn get_leverage(&self, product: ProductType, code: String) -> Result<i32>;
+
     async fn get_order(
         &self,
         product: ProductType,
         code: String,
         id: String,
     ) -> Result<Option<Order>>;
+
     async fn get_open_orders(&self, product: ProductType, code: String) -> Result<Vec<Order>>;
+
     async fn place_order(&self, order: Order) -> Result<()>;
+
     async fn cancel_order(&self, product: ProductType, code: String, id: String) -> Result<()>;
+
     async fn set_leverage(&self, product: ProductType, code: String, leverage: i32) -> Result<()>;
 }
