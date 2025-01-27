@@ -12,19 +12,24 @@ class HistoryData:
     def get_files(self):
         req_token = None
 
+        bucket = "hyperliquid-archive"
+        prefix = "market_data/202307"
+
         while True:
             if req_token is None:
-                response = self.client.list_objects_v2(Bucket="hyperliquid-archive")
+                response = self.client.list_objects_v2(Bucket=bucket, Prefix=prefix)
             else:
-                response = self.client.list_objects_v2(Bucket="hyperliquid-archive", ContinuationToken=req_token)
-
-            if "NextContinuationToken" in response:
-                req_token = response["NextContinuationToken"]
+                response = self.client.list_objects_v2(Bucket=bucket, Prefix=prefix, ContinuationToken=req_token)
 
             for obj in response.get("Contents", []):
                 key: str = obj["Key"]
                 if key.endswith("BTC.lz4"):
                     print(key)
+
+            if response["IsTruncated"]:
+                req_token = response["NextContinuationToken"]
+            else:
+                break
 
 
 if __name__ == "__main__":
