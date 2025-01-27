@@ -95,7 +95,7 @@ pub enum EventType {
     OnOrderbook,
     OnCandle,
 
+    OnLeverage,
     OnOrder,
     OnPosition,
-    OnAccount,
 }

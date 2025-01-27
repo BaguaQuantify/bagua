@@ -11,3 +11,7 @@ repository.workspace = true
 bagua-exchange = { path = "../bagua-exchange" }
 bagua-helpers = { path = "../bagua-helpers" }
 bagua-types = { path = "../bagua-types" }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+async-trait = { workspace = true }
+chrono = { workspace = true }
