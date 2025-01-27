@@ -83,6 +83,7 @@ pub struct Order {
     pub create_time: DateTime<Utc>,
 }
 
+#[derive(Debug, Clone)]
 pub struct Position {
     pub exchange: ExchangeType,
     pub product: ProductType,
@@ -93,10 +94,11 @@ pub struct Position {
     pub leverage: i32,
 }
 
+#[derive(Debug, Clone)]
 pub struct Account {
     pub exchange: ExchangeType,
     pub product: ProductType,
-    pub positions: HashMap<String, Position>,
+    pub positions: Vec<Position>,
     pub orders: HashMap<String, Order>,
 }
 
@@ -110,12 +112,14 @@ pub struct BacktestConfig {
     pub trade_slippage_rate: f64,
 }
 
+#[derive(Debug, Clone)]
 pub struct TestnetConfig {
     pub api_key: String,
     pub api_secret: String,
     pub api_passphrase: String,
 }
 
+#[derive(Debug, Clone)]
 pub struct MainnetConfig {
     pub api_key: String,
     pub api_secret: String,
