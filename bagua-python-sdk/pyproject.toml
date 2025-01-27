@@ -10,8 +10,7 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-readme = "../README.md"
-dynamic = ["version"]
+dynamic = ["version", "readme"]
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
