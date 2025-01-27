@@ -93,7 +93,7 @@ dependencies = [
 
 [[package]]
 name = "bagua-engine"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -106,7 +106,7 @@ dependencies = [
 
 [[package]]
 name = "bagua-exchange"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -118,7 +118,7 @@ dependencies = [
 
 [[package]]
 name = "bagua-helpers"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "anyhow",
  "chrono",
@@ -128,14 +128,14 @@ dependencies = [
 
 [[package]]
 name = "bagua-python-sdk"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "pyo3",
 ]
 
 [[package]]
 name = "bagua-types"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "chrono",
  "ringbuffer",
