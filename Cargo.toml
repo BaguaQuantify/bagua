@@ -1,11 +1,5 @@
 [workspace]
-members = [
-    "bagua-engine",
-    "bagua-exchange",
-    "bagua-helpers",
-    "bagua-types",
-    "bagua-python-sdk",
-]
+members = ["bagua-engine", "bagua-helpers", "bagua-types", "bagua-python-sdk"]
 resolver = "2"
 
 [workspace.package]
@@ -30,7 +24,6 @@ incremental = false
 
 [workspace.dependencies]
 bagua-engine = { path = "./bagua-engine" }
-bagua-exchange = { path = "./bagua-exchange" }
 bagua-helpers = { path = "./bagua-helpers" }
 bagua-python-sdk = { path = "./bagua-python-sdk" }
 bagua-types = { path = "./bagua-types" }

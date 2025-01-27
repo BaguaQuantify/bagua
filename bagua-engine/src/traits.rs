@@ -1,76 +1,31 @@
+use crate::event::*;
 use anyhow::Result;
 use async_trait::async_trait;
-use bagua_exchange::prelude::*;
 use bagua_types::prelude::*;
 use chrono::{DateTime, Utc};
 
 #[async_trait]
 pub trait Strategy: Clone + Send + Sync {
-    async fn on_init(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
-    async fn on_start(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
-    async fn on_stop(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
+    async fn on_init(&self, engine: impl Engine, event: OnInitEvent) -> Result<()>;
+    async fn on_start(&self, engine: impl Engine, event: OnStartEvent) -> Result<()>;
+    async fn on_stop(&self, engine: impl Engine, event: OnStopEvent) -> Result<()>;
 
-    async fn on_daily(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
-    async fn on_hourly(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
-    async fn on_minutely(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
-    async fn on_second(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
-    async fn on_tick(&self, engine: impl Engine, time: DateTime<Utc>) -> Result<()>;
+    async fn on_daily(&self, engine: impl Engine, event: OnDailyEvent) -> Result<()>;
+    async fn on_hourly(&self, engine: impl Engine, event: OnHourlyEvent) -> Result<()>;
+    async fn on_minutely(&self, engine: impl Engine, event: OnMinutelyEvent) -> Result<()>;
+    async fn on_second(&self, engine: impl Engine, event: OnSecondEvent) -> Result<()>;
+    async fn on_tick(&self, engine: impl Engine, event: OnTickEvent) -> Result<()>;
 
-    async fn on_mark_price(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: PriceEvent,
-    ) -> Result<()>;
-    async fn on_index_price(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: PriceEvent,
-    ) -> Result<()>;
-    async fn on_last_price(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: PriceEvent,
-    ) -> Result<()>;
-    async fn on_funding_rate(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: PriceEvent,
-    ) -> Result<()>;
-    async fn on_orderbook(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: OrderbookEvent,
-    ) -> Result<()>;
-    async fn on_candle(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: CandleEvent,
-    ) -> Result<()>;
+    async fn on_mark_price(&self, engine: impl Engine, event: OnMarkPriceEvent) -> Result<()>;
+    async fn on_index_price(&self, engine: impl Engine, event: OnIndexPriceEvent) -> Result<()>;
+    async fn on_last_price(&self, engine: impl Engine, event: OnLastPriceEvent) -> Result<()>;
+    async fn on_funding_rate(&self, engine: impl Engine, event: OnFundingRateEvent) -> Result<()>;
+    async fn on_orderbook(&self, engine: impl Engine, event: OnOrderbookEvent) -> Result<()>;
+    async fn on_candle(&self, engine: impl Engine, event: OnCandleEvent) -> Result<()>;
 
-    async fn on_leverage(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: LeverageUpdateEvent,
-    ) -> Result<()>;
-    async fn on_order(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: OrderUpdateEvent,
-    ) -> Result<()>;
-    async fn on_position(
-        &self,
-        engine: impl Engine,
-        time: DateTime<Utc>,
-        event: PositionUpdateEvent,
-    ) -> Result<()>;
+    async fn on_leverage(&self, engine: impl Engine, event: OnOnLeverageEvent) -> Result<()>;
+    async fn on_order(&self, engine: impl Engine, event: OnOrderEvent) -> Result<()>;
+    async fn on_position(&self, engine: impl Engine, event: OnPositionEvent) -> Result<()>;
 }
 
 #[async_trait]

@@ -5,7 +5,6 @@ use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 pub struct Candle {
-    pub exchange: ExchangeType,
     pub product: ProductType,
     pub code: String,
     pub interval: CandleInterval,
@@ -51,7 +50,6 @@ pub struct TradeRule {
 
 #[derive(Debug, Clone)]
 pub struct Pair {
-    pub exchange: ExchangeType,
     pub product: ProductType,
     pub code: String,
     pub trade_rule: TradeRule,
@@ -68,7 +66,6 @@ pub struct Pair {
 pub struct Order {
     pub id: String,
     pub eid: String,
-    pub exchange: ExchangeType,
     pub product: ProductType,
     pub code: String,
     pub type_: TradeType,
@@ -85,7 +82,6 @@ pub struct Order {
 
 #[derive(Debug, Clone)]
 pub struct Position {
-    pub exchange: ExchangeType,
     pub product: ProductType,
     pub code: String,
     pub side: TradeSide,
@@ -96,8 +92,6 @@ pub struct Position {
 
 #[derive(Debug, Clone)]
 pub struct Account {
-    pub exchange: ExchangeType,
-    pub product: ProductType,
     pub positions: Vec<Position>,
     pub orders: HashMap<String, Order>,
 }

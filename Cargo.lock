@@ -97,19 +97,6 @@ version = "1.0.2"
 dependencies = [
  "anyhow",
  "async-trait",
- "bagua-exchange",
- "bagua-helpers",
- "bagua-types",
- "chrono",
- "tokio",
-]
-
-[[package]]
-name = "bagua-exchange"
-version = "1.0.2"
-dependencies = [
- "anyhow",
- "async-trait",
  "bagua-helpers",
  "bagua-types",
  "chrono",
