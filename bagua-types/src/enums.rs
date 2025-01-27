@@ -8,13 +8,6 @@ pub enum RunMode {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize, Serialize)]
-pub enum ExchangeType {
-    Hyperliquid,
-    Binance,
-    Okx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize, Serialize)]
 pub enum ProductType {
     Spot,
     Contract,
@@ -74,28 +67,4 @@ pub enum OrderStatus {
     Filled,
     Canceled,
     Rejected,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize, Serialize)]
-pub enum EventType {
-    OnInit,
-    OnStart,
-    OnStop,
-
-    OnDaily,
-    OnHourly,
-    OnMinutely,
-    OnSecond,
-    OnTick,
-
-    OnMarkPrice,
-    OnIndexPrice,
-    OnLastPrice,
-    OnFundingRate,
-    OnOrderbook,
-    OnCandle,
-
-    OnLeverage,
-    OnOrder,
-    OnPosition,
 }

@@ -9,7 +9,6 @@ repository.workspace = true
 readme.workspace = true
 
 [dependencies]
-bagua-exchange = { path = "../bagua-exchange" }
 bagua-helpers = { path = "../bagua-helpers" }
 bagua-types = { path = "../bagua-types" }
 anyhow = { workspace = true }

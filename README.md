@@ -2,13 +2,6 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-<div align="center">
-  <img src="logo.png" alt="bagua" width="128" height="128">
-</div>
-
-<br/>
-<br/>
-
 本项目采用 Rust 编写核心引擎，通过零成本抽象实现极致性能。项目提供完整的量化交易功能，包括实时行情订阅、交易执行、策略回测等核心功能。同时提供 Python SDK，便捷开发和部署量化交易策略。
 
 ## 特性
