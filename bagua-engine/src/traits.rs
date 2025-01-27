@@ -100,17 +100,7 @@ pub trait Engine: Clone + Send + Sync {
         id: String,
     ) -> Result<Option<Order>>;
     async fn get_open_orders(&self, product: ProductType, code: String) -> Result<Vec<Order>>;
-    async fn place_order(
-        &self,
-        exchange: ExchangeType,
-        product: ProductType,
-        code: String,
-        side: TradeSide,
-        type_: TradeType,
-        reduce_only: bool,
-        price: f64,
-        volume: f64,
-    ) -> Result<String>;
+    async fn place_order(&self, order: Order) -> Result<()>;
     async fn cancel_order(&self, product: ProductType, code: String, id: String) -> Result<()>;
     async fn set_leverage(&self, product: ProductType, code: String, leverage: i32) -> Result<()>;
 }
