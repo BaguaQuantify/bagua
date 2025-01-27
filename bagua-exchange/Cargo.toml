@@ -6,6 +6,7 @@ description.workspace = true
 edition.workspace = true
 license-file.workspace = true
 repository.workspace = true
+readme.workspace = true
 
 [dependencies]
 bagua-helpers = { workspace = true }

@@ -15,6 +15,7 @@ description = "八卦量化库"
 edition = "2021"
 license-file = "LICENSE"
 repository = "https://github.com/BaguaQuantify/bagua"
+readme = "README.md"
 
 [profile.release]
 codegen-units = 1
