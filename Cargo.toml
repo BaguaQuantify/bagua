@@ -34,17 +34,20 @@ bagua-engine = { path = "./bagua-engine" }
 bagua-exchange = { path = "./bagua-exchange" }
 tokio = { version = "1", features = ["full"] }
 anyhow = { version = "1" }
-tracing = { version = "0" }
-tracing-subscriber = { version = "0", features = ["local-time", "json"] }
-chrono = { version = "0" }
-time = { version = "0", features = ["macros", "formatting"] }
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["local-time", "json"] }
+chrono = { version = "0.4" }
+time = { version = "0.3", features = ["macros", "formatting"] }
 once_cell = { version = "1" }
 rayon = { version = "1" }
-futures = { version = "0" }
+futures = { version = "0.3" }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
 snowflaked = { version = "1", features = ["sync"] }
-async-trait = { version = "0" }
-parking_lot = { version = "0" }
-ringbuffer = { version = "0" }
+async-trait = { version = "0.1" }
+parking_lot = { version = "0.12" }
+ringbuffer = { version = "0.15" }
 pyo3 = { version = "0.23", features = ["full"] }
+uuid = { version = "1", features = ["v4", "fast-rng", "macro-diagnostics"] }
+num_cpus = { version = "1" }
+homedir = { version = "0.3" }
